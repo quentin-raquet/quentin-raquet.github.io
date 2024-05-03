@@ -1,27 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+a:link, a:visited, a:active {
+    text-decoration: none; /* Supprime le soulignement */
+    color: inherit; /* Fait en sorte que la couleur du lien soit la même que le texte environnant */
+}
+
+a:hover {
+    color: #ff6347; /* Change la couleur du lien lorsqu'il est survolé */
+}
+
 body, html {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
 }
 
-.full-width {
-    width: 100%;
-}
-
 header {
     background-color: #2A3140;
-    height: 70px;
-    z-index: 3;
+    height: 60px;
+    z-index: 1;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
 }
 
+.main-title {
+    position: absolute;
+    top: 50%;
+    left: 150px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 18px; /* Add this line and adjust the value as needed */
+}
+
 .profile-picture {
+    z-index: 0;
     width: 100px;
     height: 100px;
     background-image: url("assets/photo_linkedin_orange.png");
@@ -32,47 +49,85 @@ header {
 }
 
 nav {
+    z-index: 0;
     width: 150px;
-    background-color: #dbd9d9;
-    color: #fff;
+    background-color: #ebe2e2;
+    color: #333;
     padding-top: 130px;
     position: fixed;
-    top: 70px; /* Prend en compte la hauteur du header */
-    bottom: 120px; /* Prend en compte la hauteur du footer */
-    overflow-y: auto; /* Activer le défilement vertical */
+    height: 100%;
+    overflow-y: auto;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
 }
 
 nav ul li {
     padding: 10px;
+    margin: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 10px;
+    text-align: left;
+}
+
+nav ul li:hover {
+    background-color: #cac7c7;
+    color: #333; /* Ajoutez cette ligne */
+    margin: 10px;
 }
 
 .main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: #aac299;
-    margin-left: 150px;
-    margin-top: 70px; /* Prend en compte la hauteur du header */
-    margin-bottom: 120px; /* Prend en compte la hauteur du footer */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow-y: auto; /* Activer le défilement vertical */
+}
+
+.tab-content {
+    height: 100%; /* Add this line */
+    display: block;
+    padding: 10px;
+    margin-left: 170px;
+    margin-right: 40px;
+    background-color: #ffffff;
 }
 
 footer {
     background-color: #2A3140;
     color: #fff; 
     text-align: center;
-    height: 120px;
-    z-index: 3;
+    height: 60px;
+    z-index: 1;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    justify-content: flex-start; /* Align items on the left */
+    align-items: center;
+    gap: 70px; /* Add this line to space items by 50px */
+}
+
+footer img {
+    height: 20px;
+    width: 20px;
+}
+
+footer img:hover {
+    filter: brightness(0) saturate(100%) invert(28%) sepia(96%) saturate(6043%) hue-rotate(9deg) brightness(102%) contrast(104%);
 }
 
 /* Responsive styles */
