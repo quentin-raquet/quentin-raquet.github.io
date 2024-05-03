@@ -1,0 +1,122 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.full-width {
+    width: 100%;
+}
+
+header {
+    background-color: #2A3140;
+    height: 70px;
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    background-image: url("assets/photo_linkedin_orange.png");
+    background-size: cover;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+nav {
+    width: 150px;
+    background-color: #dbd9d9;
+    color: #fff;
+    padding-top: 130px;
+    position: fixed;
+    top: 70px; /* Prend en compte la hauteur du header */
+    bottom: 120px; /* Prend en compte la hauteur du footer */
+    overflow-y: auto; /* Activer le défilement vertical */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #aac299;
+    margin-left: 150px;
+    margin-top: 70px; /* Prend en compte la hauteur du header */
+    margin-bottom: 120px; /* Prend en compte la hauteur du footer */
+}
+
+footer {
+    background-color: #2A3140;
+    color: #fff; 
+    text-align: center;
+    height: 120px;
+    z-index: 3;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    nav {
+        width: 100%;
+        padding-top: 100px;
+        position: static;
+        top: 0; /* Ajuste la position du nav sur les petits écrans */
+        bottom: auto;
+    }
+
+    .profile-picture {
+        width: 80px;
+        height: 80px;
+    }
+
+    header {
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-top: 0;
+        margin-bottom: 120px; /* Garder la distance du footer */
+    }
+
+    .tab-content {
+        display: block;
+    }
+}
+
+/* Flex layout for larger screens */
+@media screen and (min-width: 769px) {
+    body {
+        flex-direction: row;
+    }
+
+    nav {
+        flex: 0 0 150px; /* Fixe la largeur de la barre de navigation */
+    }
+
+    .main-content {
+        flex: 1; /* Le contenu principal prend tout l'espace restant */
+        margin-left: 20px; /* Ajoute un espace entre la barre de navigation et le contenu principal */
+    }
+}
