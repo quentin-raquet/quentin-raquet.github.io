@@ -1,5 +1,5 @@
 document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
         e.preventDefault();
         // Remove 'current' class from all nav-links
         document.querySelectorAll('.nav-link').forEach(nav => {
@@ -13,19 +13,22 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-window.addEventListener("scroll",function(){
+window.addEventListener("scroll", function () {
     const windowScrollTop = window.scrollTop;
     const elementToHide = document.getElementById("main-content");
-  
+
     elementToHide.style.clipPath = `inset(${windowScrollTop}px 0 0 0)`;
-  });
+});
 
 
 function loadPage(url) {
     fetch(url)
         .then(response => response.text())
         .then(data => {
-            document.getElementById('main-content').innerHTML = data;
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = data;
+            // Scroll main-content to top after new content is loaded
+            mainContent.scrollTop = 0;
         });
 }
 
