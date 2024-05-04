@@ -1,15 +1,33 @@
-// Sélectionnez tous les liens de la navigation
-const navLinks = document.querySelectorAll('nav ul li a');
-
-// Ajoutez un écouteur d'événements à chaque lien
-navLinks.forEach(link => {
-    link.addEventListener('click', (event) => {
-        event.preventDefault(); // Empêcher le comportement par défaut du lien
-
-        const targetId = link.getAttribute('href'); // Obtenir l'ID de la cible
-        const targetTab = document.querySelector(targetId); // Sélectionner l'élément avec cet ID
-
-        // Déplacez la fenêtre de visualisation jusqu'à la section cible
-        targetTab.scrollIntoView({ behavior: 'smooth' });
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Remove 'current' class from all nav-links
+        document.querySelectorAll('.nav-link').forEach(nav => {
+            nav.classList.remove('current');
+        });
+        // Add 'current' class to clicked link
+        this.classList.add('current');
+        const url = new URL(e.target.href);
+        const path = url.pathname;
+        loadPage(path);
     });
 });
+
+window.addEventListener("scroll",function(){
+    const windowScrollTop = window.scrollTop;
+    const elementToHide = document.getElementById("main-content");
+  
+    elementToHide.style.clipPath = `inset(${windowScrollTop}px 0 0 0)`;
+  });
+
+
+function loadPage(url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('main-content').innerHTML = data;
+        });
+}
+
+// Load the home page by default
+loadPage('home.html');
