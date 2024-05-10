@@ -13,6 +13,12 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
+window.onload = function() {
+    var checkbox = document.getElementById('toggle');
+    var currentLanguage = window.location.pathname.split('/')[1];
+    checkbox.checked = currentLanguage === 'fr';
+};
+
 
 function applyBounceEffect() {
     const mainContent = document.getElementById('main-content');
