@@ -552,6 +552,11 @@ header .social img:hover {
         padding-right: 10%;
     }
 
+    
+    .about .section h3 {
+        margin-top: 170px;
+    }
+
     .main-content h1 {
         padding: 5%;
         font-size: 80px;
