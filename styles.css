@@ -23,7 +23,6 @@ body,
 html {
     font-family: 'Roboto', sans-serif;
     background-color: var(--main-bg-color);
-    min-width: 1500px;
 }
 
 
