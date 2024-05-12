@@ -258,6 +258,7 @@ header .social img:hover {
 .home h1 a {
     color: var(--dark-orange);
     transition-duration: 0.2s;
+    cursor: pointer;
 }
 
 .home h1 a:hover {
@@ -301,6 +302,7 @@ header .social img:hover {
 
 .services .section h2 {
     font-size: 60px;
+    scroll-margin-top: 130px;
 }
 
 .services .section .text-content {
@@ -397,6 +399,7 @@ header .social img:hover {
     font-size: 30px;
     margin-top: 80px;
     margin-bottom: 10px;
+    scroll-margin-top: 100px;
 }
 
 .about .section h3 a {
@@ -536,6 +539,10 @@ header .social img:hover {
         margin-top: 140px;
     }
 
+    .services .section h2 {
+        scroll-margin-top: 180px;
+    }
+
     .about {
         margin-top: 140px;
     }
@@ -551,11 +558,12 @@ header .social img:hover {
         padding-left: 10%;
         padding-right: 10%;
     }
-
     
     .about .section h3 {
         margin-top: 170px;
+        scroll-margin-top: 190px;
     }
+
 
     .main-content h1 {
         padding: 5%;

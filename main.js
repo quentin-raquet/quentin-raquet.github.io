@@ -1,25 +1,3 @@
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault();
-        // Remove 'current' class from all nav-links
-        document.querySelectorAll('.nav-link').forEach(nav => {
-            nav.classList.remove('current');
-        });
-        // Add 'current' class to clicked link
-        this.classList.add('current');
-        const url = new URL(e.target.href);
-        const path = url.pathname;
-        loadPage(path);
-    });
-});
-
-window.onload = function() {
-    var checkbox = document.getElementById('toggle');
-    var currentLanguage = window.location.pathname.split('/')[1];
-    checkbox.checked = currentLanguage === 'fr';
-};
-
-
 function applyBounceEffect() {
     const mainContent = document.getElementById('main-content');
     const scrollTop = mainContent.scrollTop;
@@ -36,44 +14,111 @@ function applyBounceEffect() {
     }
 }
 
-function applyAppearenceEffect() {
+function applyAppearanceEffect() {
     const sections = document.querySelectorAll('.section');
     const windowHeight = window.innerHeight;
 
     sections.forEach(section => {
         const distanceFromTop = section.getBoundingClientRect().top;
-        if (distanceFromTop <= windowHeight / 2) {
-            section.style.opacity = '1';
-        } else {
-            section.style.opacity = '0.1';
-        }
+        section.style.opacity = distanceFromTop <= windowHeight / 2 ? '1' : '0.1';
     });
 }
 
 function animatedSkillsBar() {
-    let bars = document.querySelectorAll('.skills-bar .bar');
+    const bars = document.querySelectorAll('.skills-bar .bar');
     bars.forEach(bar => {
-        let skillsBars = bar.parentElement;
-        let percent = skillsBars.parentElement.getAttribute('data-percent');
+        const skillsBars = bar.parentElement;
+        const percent = skillsBars.parentElement.getAttribute('data-percent');
         bar.style.width = percent + '%';
     });
 }
 
-function loadPage(url) {
-    fetch(url)
-        .then(response => response.text())
-        .then(data => {
-            const mainContent = document.getElementById('main-content');
-            mainContent.innerHTML = data;
-            // Scroll main-content to top after new content is loaded
-            mainContent.scrollTop = 0;
-            mainContent.addEventListener('scroll', applyBounceEffect);
-            mainContent.addEventListener('scroll', applyAppearenceEffect);
-            animatedSkillsBar();
+function scrollToDiv(divId) {
+    let target = document.getElementById(divId);
+    if (target) {
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
         });
+    }
 }
 
+async function handleClickLink(event, page, divId) {
+    event.preventDefault();
+    await changeCurrentPage(page);
+    scrollToDiv(divId);
+}
 
+async function loadContent(language, page, elementId) {
+    const response = await fetch(`/${language}/${page}.html`);
+    const data = await response.text();
+    const element = document.getElementById(elementId);
+    element.innerHTML = data;
+    element.scrollTo({ top: 0, behavior: 'smooth' });
+    element.addEventListener('scroll', applyBounceEffect);
+    element.addEventListener('scroll', applyAppearanceEffect);
+    animatedSkillsBar();
 
-// Load the home page by default
-loadPage('home.html');
+    if (elementId === 'menu') {
+        const language = localStorage.getItem('language') || 'en';
+        var checkbox = document.getElementById('toggle');
+        checkbox.checked = (language === 'fr');
+
+        const currentPage = localStorage.getItem('currentPage') || 'home';
+        const links = element.querySelectorAll('a.nav-link');
+        links.forEach(link => {
+            let onclickValue = link.getAttribute('onclick');
+            if (onclickValue.includes(`changeCurrentPage('${currentPage}')`)) {
+                link.classList.add('current');
+            } else {
+                link.classList.remove('current');
+            }
+        });
+    }
+
+    return new Promise(resolve => {
+        resolve();
+    });
+}
+
+function changeLanguage() {
+    const currentLanguage = localStorage.getItem('language') || 'en';
+    localStorage.setItem('language', currentLanguage === 'en' ? 'fr' : 'en');
+    navigate();
+}
+
+async function changeCurrentPage(page) {
+    localStorage.setItem('currentPage', page);
+    const language = localStorage.getItem('language') || 'en';
+    location.hash = `${language}/${page}`;
+    await loadContent(language, 'menu', 'menu');
+    await loadContent(language, page, 'main-content');
+}
+
+function navigate() {
+    const language = localStorage.getItem('language') || 'en';
+    const currentPage = localStorage.getItem('currentPage') || 'home';
+    location.hash = `${language}/${currentPage}`;
+    loadContent(language, 'menu', 'menu');
+    loadContent(language, currentPage, 'main-content');
+}
+
+navigate();
+
+window.addEventListener('hashchange', function () {
+    const currLang = localStorage.getItem('language') || 'en';
+    const currPage = localStorage.getItem('currentPage') || 'home';
+    const [newLang, newPage] = location.hash.slice(1).split('/');
+    let isChanged = false;
+    if (currLang !== newLang) {
+        localStorage.setItem('language', newLang);
+        isChanged = true;
+    }
+    if (currPage !== newPage) {
+        localStorage.setItem('currentPage', newPage);
+        isChanged = true;
+    }
+    if (isChanged) {
+        navigate();
+    }
+});
