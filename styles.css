@@ -23,7 +23,7 @@ body,
 html {
     font-family: 'Roboto', sans-serif;
     background-color: var(--main-bg-color);
-    min-width: 1000px;
+    min-width: 1500px;
 }
 
 
@@ -196,7 +196,6 @@ header .social img {
 
 header .social img:hover {
     transform: scale(1.2);
-    filter: brightness(0) saturate(100%) invert(28%) sepia(96%) saturate(6043%) hue-rotate(9deg) brightness(102%) contrast(104%);
 }
 
 
@@ -211,6 +210,7 @@ header .social img:hover {
     overflow: auto;
     z-index: 1;
     color: white;
+    width: 100%;
 }
 
 
@@ -251,7 +251,7 @@ header .social img:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 80px);
+    height: calc(101vh - 80px);
     margin-top: 80px;
 }
 
@@ -284,13 +284,13 @@ header .social img:hover {
 
 .home .social-icons img:hover {
     transform: scale(1.2);
-    filter: brightness(0) saturate(100%) invert(28%) sepia(96%) saturate(6043%) hue-rotate(9deg) brightness(102%) contrast(104%);
 }
 
 .services {
     margin-top: 80px;
     margin-bottom: 10%;
 }
+
 
 .services .section {
     padding-top: 10%;
@@ -497,7 +497,7 @@ header .social img:hover {
 
 
 /* Mobile devices */
-@media only screen and (max-width: 1000px) {
+@media (hover: none) and (max-width: 1000px) {
 
     button {
         font-size: 0.3em;
@@ -508,7 +508,7 @@ header .social img:hover {
     }
 
     header .profile {
-        flex:0.7;
+        flex: 0.7;
         font-size: 1.4em;
     }
 
@@ -517,7 +517,7 @@ header .social img:hover {
     }
 
     header .social {
-        flex:0.2;
+        flex: 0.2;
         font-size: 1.8em;
     }
 
@@ -532,19 +532,34 @@ header .social img:hover {
 
     .home {
         margin-top: 140px;
-        height: calc(100vh - 130px);
+        height: calc(101% - 140px);
     }
 
     .services {
         margin-top: 140px;
+        margin-bottom: 50%;
     }
 
     .services .section h2 {
         scroll-margin-top: 180px;
     }
 
+    .services .section h2 .subtitle {
+        font-size: 0.5em;
+    }
+
+    .services .section .paragraph {
+        font-size: 1.8em;
+    }
+
+    .services .section .paragraph h3 {
+        font-size: 1.5em;
+    }
+
+
     .about {
         margin-top: 140px;
+        margin-bottom: 50%;
     }
 
     .services .section {
@@ -557,23 +572,47 @@ header .social img:hover {
         padding-top: 10%;
         padding-left: 10%;
         padding-right: 10%;
+        font-size: 1.8em;
     }
-    
+
+    .about .section .date {
+        font-size: 1em;
+    }
+
+    .about .section .place {
+        font-size: 1em;
+    }
+
+    .about .section {
+        padding-top: 10%;
+        padding-left: 10%;
+        padding-right: 10%;
+        font-size: 1.8em;
+    }
+
     .about .section h3 {
         margin-top: 170px;
         scroll-margin-top: 190px;
+        font-size: 1.5em;
     }
 
 
     .main-content h1 {
-        padding: 5%;
+        padding-top: 20%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 5%;
         font-size: 80px;
         justify-content: center;
         text-align: center;
     }
 
+    .main-content .home h1 {
+        padding: 5%;
+    }
+
     .about .skills-prog ul li span {
-        font-size: 1.3em;
+        font-size: 1em;
         padding-right: 30px;
     }
 }
