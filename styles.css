@@ -23,6 +23,7 @@ body,
 html {
     font-family: 'Roboto', sans-serif;
     background-color: var(--main-bg-color);
+    min-width: 1000px;
 }
 
 
@@ -72,6 +73,8 @@ li::marker {
     border-radius: 20px;
     background: #4a505f;
     cursor: pointer;
+    margin-right: 10%;
+    margin-left: 10%;
 }
 
 .toggleContainer::before {
@@ -118,7 +121,7 @@ li::marker {
 header {
     background-color: var(--main-bg-color);
     color: white;
-    height: 11%;
+    height: 80px;
     width: 100%;
     position: fixed;
     top: 0;
@@ -133,6 +136,11 @@ header .profile {
     flex: 1;
     align-items: center;
     display: flex;
+    font-size: 1em;
+}
+
+header .menu ul {
+    padding: 0px;
 }
 
 header .profile img {
@@ -148,7 +156,7 @@ header .menu {
     align-items: center;
     display: flex;
     justify-content: center;
-    font-size: large;
+    font-size: 1.2em;
 }
 
 header .nav-link.current {
@@ -164,7 +172,13 @@ header .social {
     align-items: center;
     display: flex;
     justify-content: right;
-    padding-right: 40px;
+    font-size: 1em;
+}
+
+header .social ul {
+    padding: 0%;
+    margin-right: 5%;
+    align-items: center;
 }
 
 
@@ -173,10 +187,6 @@ header li {
     margin: 10px
 }
 
-header .social img {
-    height: 25px;
-    width: 25px;
-}
 
 header .social img {
     height: 25px;
@@ -189,6 +199,7 @@ header .social img:hover {
     filter: brightness(0) saturate(100%) invert(28%) sepia(96%) saturate(6043%) hue-rotate(9deg) brightness(102%) contrast(104%);
 }
 
+
 .main-content {
     background-image: url('assets/work_background_opacity15.png');
     background-size: cover;
@@ -197,23 +208,21 @@ header .social img:hover {
     top: 0;
     bottom: 0;
     left: 0;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 70px;
-    padding-bottom: 30px;
     overflow: auto;
     z-index: 1;
     color: white;
-    width: 80%;
-    margin: 0 auto;
 }
 
 
 .main-content h1 {
-    padding: 10%;
+    padding-top: 10%;
+    padding-left: 18%;
+    padding-right: 18%;
+    padding-bottom: 10%;
     font-size: 80px;
-    justify-content: center;
+    justify-self: center;
     text-align: center;
+    margin: 0%;
 }
 
 .main-content h1 .subtitle {
@@ -237,11 +246,14 @@ header .social img:hover {
     text-align: justify;
 }
 
-.home h1 {
-    padding-top: 5%;
-    padding-bottom: 0%;
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+    margin-top: 80px;
 }
-
 
 .home h1 a {
     color: var(--dark-orange);
@@ -259,9 +271,8 @@ header .social img:hover {
 }
 
 .home .social-icons a {
-    padding-left: 2%;
-    padding-right: 2%;
-    padding-bottom: 10%;
+    padding: 2%;
+    font-size: 0px;
 }
 
 .home .social-icons img {
@@ -275,29 +286,25 @@ header .social img:hover {
     filter: brightness(0) saturate(100%) invert(28%) sepia(96%) saturate(6043%) hue-rotate(9deg) brightness(102%) contrast(104%);
 }
 
+.services {
+    margin-top: 80px;
+    margin-bottom: 10%;
+}
+
 .services .section {
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    padding: 40px;
+    padding-top: 10%;
+    padding-left: 20%;
+    padding-right: 20%;
     opacity: 0.1;
     transition: opacity 0.5s ease-in-out;
 }
 
 .services .section h2 {
     font-size: 60px;
-    padding-left: 50px;
-    padding-right: 50px;
 }
 
 .services .section .text-content {
     display: flex;
-    padding-left: 40px;
-    padding-right: 40px;
 }
 
 .services .section .text-content .paragraph {
@@ -364,16 +371,17 @@ header .social img:hover {
     }
 }
 
+.about {
+    margin-top: 80px;
+    margin-bottom: 10%;
+}
+
 .about .section {
-    position: relative;
-    justify-content: center;
     align-items: center;
     text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    padding: 40px;
+    padding-top: 10%;
+    padding-left: 20%;
+    padding-right: 20%;
     opacity: 0.1;
     transition: opacity 0.5s ease-in-out;
 }
@@ -387,7 +395,7 @@ header .social img:hover {
 .about .section h3 {
     font-weight: normal;
     font-size: 30px;
-    margin-top: 60px;
+    margin-top: 80px;
     margin-bottom: 10px;
 }
 
@@ -482,4 +490,77 @@ header .social img:hover {
     background-color: var(--dark-orange);
     box-shadow: 0 0 0 var(--dark-orange);
     border-radius: 5px;
+}
+
+
+/* Mobile devices */
+@media only screen and (max-width: 1000px) {
+
+    button {
+        font-size: 0.3em;
+    }
+
+    header {
+        height: 140px;
+    }
+
+    header .profile {
+        flex:0.7;
+        font-size: 1.4em;
+    }
+
+    header .menu {
+        font-size: 2.1em;
+    }
+
+    header .social {
+        flex:0.2;
+        font-size: 1.8em;
+    }
+
+    header .social ul {
+        display: none;
+    }
+
+    header .social img {
+        height: 30px;
+        width: 30px;
+    }
+
+    .home {
+        margin-top: 140px;
+        height: calc(100vh - 130px);
+    }
+
+    .services {
+        margin-top: 140px;
+    }
+
+    .about {
+        margin-top: 140px;
+    }
+
+    .services .section {
+        padding-top: 10%;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .about .section {
+        padding-top: 10%;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .main-content h1 {
+        padding: 5%;
+        font-size: 80px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .about .skills-prog ul li span {
+        font-size: 1.3em;
+        padding-right: 30px;
+    }
 }
