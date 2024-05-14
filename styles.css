@@ -498,11 +498,11 @@ header .social img:hover {
 @media only screen and (max-width: 1000px) {
 
     header .profile {
-        flex: 0.3;
+        flex: 0.4;
     }
 
     header .menu {
-        flex: 0.5;
+        flex: 0.4;
     }
 
     header .social {
