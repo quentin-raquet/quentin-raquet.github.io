@@ -135,7 +135,6 @@ header .profile {
     flex: 1;
     align-items: center;
     display: flex;
-    font-size: 1em;
 }
 
 header .menu ul {
@@ -155,7 +154,7 @@ header .menu {
     align-items: center;
     display: flex;
     justify-content: center;
-    font-size: 1.2em;
+    font-size: large;
 }
 
 header .nav-link.current {
@@ -171,7 +170,6 @@ header .social {
     align-items: center;
     display: flex;
     justify-content: right;
-    font-size: 1em;
 }
 
 header .social ul {
@@ -218,7 +216,7 @@ header .social img:hover {
     padding-left: 18%;
     padding-right: 18%;
     padding-bottom: 10%;
-    font-size: 80px;
+    font-size: 5em;
     justify-self: center;
     text-align: center;
     margin: 0%;
@@ -300,7 +298,7 @@ header .social img:hover {
 }
 
 .services .section h2 {
-    font-size: 60px;
+    font-size: 4em;
     scroll-margin-top: 130px;
 }
 
@@ -314,7 +312,7 @@ header .social img:hover {
 }
 
 .services .section .text-content h3 {
-    font-size: 30px;
+    font-size: 1.8em;
 }
 
 
@@ -348,7 +346,7 @@ header .social img:hover {
 
 #scroll-arrow {
     margin-top: 100px;
-    font-size: 40px;
+    font-size: 0.5em;
     color: white;
     animation: bounce 2s infinite;
 }
@@ -388,16 +386,16 @@ header .social img:hover {
 }
 
 .about .section h2 {
-    font-size: 60px;
-    padding-left: 50px;
-    padding-right: 50px;
+    font-size: 3.5em;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .about .section h3 {
     font-weight: normal;
-    font-size: 30px;
-    margin-top: 80px;
-    margin-bottom: 10px;
+    font-size: 1.8em;
+    margin-top: 7%;
+    margin-bottom: 1%;
     scroll-margin-top: 100px;
 }
 
@@ -411,14 +409,15 @@ header .social img:hover {
 }
 
 .about .section .date {
-    font-size: 15px;
+    font-size: 1.1em;
     font-style: italic;
     color: var(--light-orange);
 }
 
 .about .section .place {
-    font-size: 15px;
-    margin-bottom: 20px;
+    font-size: 1.1em;
+    font-style: italic;
+    margin-bottom: 2%;
 }
 
 .about .section .accomplishments {
@@ -498,120 +497,145 @@ header .social img:hover {
 /* Mobile devices */
 @media only screen and (max-width: 1000px) {
 
-    button {
-        font-size: 0.3em;
-    }
-
-    header {
-        height: 140px;
-    }
-
     header .profile {
-        flex: 0.7;
-        font-size: 1.4em;
+        flex: 0.3;
     }
 
     header .menu {
-        font-size: 2.1em;
+        flex: 0.5;
     }
 
     header .social {
         flex: 0.2;
-        font-size: 1.8em;
     }
 
     header .social ul {
         display: none;
     }
 
-    header .social img {
-        height: 30px;
-        width: 30px;
+
+    .services .section {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .about .section {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .main-content h1 {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+}
+
+
+/* Mobile devices */
+@media only screen and (max-width: 600px) {
+
+    header {
+        height: 60px;
+    }
+
+    header .profile {
+        flex: 0.2;
+    }
+
+    header .profile .title {
+        display: none;
+    }
+
+    header .profile img {
+        height: 65px;
+        width: 65px;
+        padding-left: 5px;
+        padding-top: 20px;
+        padding-right: 5px;
+    }
+
+    header .menu {
+        flex: 0.6;
+        font-size: 0.9em;
+    }
+
+    header .menu li {
+        margin: 5px;
+    }
+
+    header .nav-link.current {
+        text-underline-offset: 25px;
+    }
+
+    header .social {
+        flex: 0.2;
+        font-size: 0.8em;
+    }
+
+    header .social ul {
+        display: none;
     }
 
     .home {
-        margin-top: 140px;
-        height: calc(101% - 140px);
+        height: calc(101vh - 60px);
+        margin-top: 60px;
+        font-size: 0.55em;
+    }
+
+    .home .social-icons img {
+        height: 50px;
+        width: 50px;
     }
 
     .services {
-        margin-top: 140px;
+        margin-top: 60px;
         margin-bottom: 50%;
-    }
-
-    .services .section h2 {
-        scroll-margin-top: 180px;
-    }
-
-    .services .section h2 .subtitle {
-        font-size: 0.5em;
-    }
-
-    .services .section .paragraph {
-        font-size: 1.8em;
-    }
-
-    .services .section .paragraph h3 {
-        font-size: 1.5em;
-    }
-
-
-    .about {
-        margin-top: 140px;
-        margin-bottom: 50%;
+        font-size: 0.55em;
     }
 
     .services .section {
-        padding-top: 10%;
         padding-left: 10%;
         padding-right: 10%;
+    }
+
+    .services .section .text-content .paragraph {
+        padding: 5px;
+    }
+
+    .services .section .text-content .paragraph ul {
+        padding: 5px;
+        font-size: 1.2em;
+    }
+
+    .about {
+        margin-top: 60px;
+        margin-bottom: 50%;
+        font-size: 0.55em;
     }
 
     .about .section {
-        padding-top: 10%;
         padding-left: 10%;
         padding-right: 10%;
-        font-size: 1.8em;
+        font-size: 1.4em;
     }
 
-    .about .section .date {
-        font-size: 1em;
-    }
-
-    .about .section .place {
-        font-size: 1em;
-    }
-
-    .about .section {
-        padding-top: 10%;
-        padding-left: 10%;
-        padding-right: 10%;
-        font-size: 1.8em;
+    .about .section h2 {
+        font-size: 3em;
     }
 
     .about .section h3 {
-        margin-top: 170px;
-        scroll-margin-top: 190px;
-        font-size: 1.5em;
+        margin-top: 15%;
     }
 
+    .about .skills-prog ul {
+        margin-left: 0px;
+        padding-left: 0px;
+    }
 
     .main-content h1 {
-        padding-top: 20%;
         padding-left: 5%;
         padding-right: 5%;
-        padding-bottom: 5%;
-        font-size: 80px;
-        justify-content: center;
-        text-align: center;
     }
 
-    .main-content .home h1 {
-        padding: 5%;
-    }
-
-    .about .skills-prog ul li span {
-        font-size: 1em;
-        padding-right: 30px;
-    }
 }
